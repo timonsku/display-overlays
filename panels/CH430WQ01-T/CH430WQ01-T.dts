@@ -1,0 +1,85 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+        compatible = "brcm,bcm2835";
+
+        dsi_frag: fragment@0 {
+                target = <&dsi1>;
+                __overlay__{
+                        status = "okay";
+                        #address-cells = <1>;
+                        #size-cells = <0>;
+                        port {
+                                dsi_out:endpoint {
+                                        remote-endpoint = <&panel_dsi_port>;
+                                };
+                        };
+                        panel@0 {
+                            compatible = "CH430WQ01-T","panel-dsi";
+                            label = "CH430WQ01-T";
+                            reg = <0>;
+                            power-supply = <0>;
+                            backlight = <0>;
+                            dsi-color-format = "RGB888";
+                            lanes = <1>;
+                            mode = "MODE_VIDEO";
+                            width-mm = <68>;
+                            height-mm = <121>;
+
+                            port {
+                                panel_dsi_port: endpoint {
+                                    remote-endpoint = <&dsi_out>;
+                                };
+                            };
+
+                            panel-timing {
+                                clock-frequency = <25979400>;
+                                hactive = <480>;
+                                vactive = <272>;
+                                hfront-porch = <4>;
+                                hback-porch = <2>;
+                                hsync-len = <60>;
+                                vback-porch = <9>;
+                                vfront-porch = <7>;
+                                vsync-len = <30>;
+
+                                hsync-active = <0>;
+                                vsync-active = <0>;
+                                de-active = <1>;
+                                pixelclk-active = <1>;
+                            };
+                        };
+                };
+        };
+
+        i2c_frag: fragment@1 {
+            target = <&i2c_csi_dsi>;
+            __overlay__ {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                status = "okay";
+
+            };
+        };
+
+        fragment@2 {
+            target = <&i2c0if>;
+            __overlay__ {
+                status = "okay";
+            };
+        };
+
+        fragment@3 {
+            target = <&i2c0mux>;
+            __overlay__ {
+                status = "okay";
+            };
+        };
+
+        __overrides__ {
+		dsi0 = <&dsi_frag>, "target:0=",<&dsi0>,
+		       <&i2c_frag>, "target:0=",<&i2c_csi_dsi0>;
+	};
+
+};
