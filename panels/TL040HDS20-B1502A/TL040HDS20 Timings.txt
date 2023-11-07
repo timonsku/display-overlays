@@ -1,0 +1,11 @@
+
+#define VSPW 2 
+#define VBPD 18 
+#define VFPD 16
+
+#define HSPW 2	
+#define HBPD 44
+#define HFPD 46 
+
+//PCLK 30MHZ
+
