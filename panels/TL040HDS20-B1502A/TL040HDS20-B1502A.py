@@ -17,7 +17,7 @@ i2c = I2C(6)
 # i2c = I2C(4)
 
 # Pi4<= DSI
-# i2c = I2C(1)
+# i2c = I2C(0)
 
 from adafruit_icn6211 import *
 
@@ -29,12 +29,12 @@ icn = ICN6211(i2c)
 
 icn.de_pol = True
 icn.resolution = (720,720)
-icn.horizontal_front_porch = 4
-icn.horizontal_sync_width = 60
+icn.horizontal_front_porch = 46
+icn.horizontal_sync_width = 44
 icn.horizontal_back_porch = 2
-icn.vertical_front_porch = 7
-icn.vertical_sync_width = 30
-icn.vertical_back_porch = 9
+icn.vertical_front_porch = 16
+icn.vertical_sync_width = 2
+icn.vertical_back_porch = 18
 icn.sync_event_delay = 128
 icn.pd_ck_term_force = True
 icn.pd_ck_hsrx_force = True
@@ -43,9 +43,9 @@ icn.out_bit_swap = OUT_BIT_SWAP.MODE_666_7_2_to_0_5
 icn.mipi_lane_num = MIPI_LANE_NUM.ONE_LANE
 icn.pll_refsel = PLL_REF_SEL.MIPI_CLK
 icn.pll_int_0 = 3 #PLL clock
-icn.pll_out_divide_ratio = PLL_OUT_DIV_RATIO.DIV_2
+icn.pll_out_divide_ratio = PLL_OUT_DIV_RATIO.DIV_4
 icn.pll_ref_clk_divide_ratio = PLL_REF_CLK_DIV_RATIO.DIV_1
-icn.pll_ref_clk_extra_divide = True
+icn.pll_ref_clk_extra_divide = False
 icn.mipi_force_0 = 0x20 #not documented, magic value from Linux driver
 icn.pll_vco_isel = 0x20 #not documented, magic value from Linux driver
 icn.clk_phase_sel = CLK_PHASE.PHASE_0

@@ -17,7 +17,7 @@ i2c = I2C(6)
 # i2c = I2C(4)
 
 # Pi4<= DSI
-# i2c = I2C(1)
+# i2c = I2C(0)
 
 from adafruit_icn6211 import *
 
