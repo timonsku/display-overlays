@@ -60,6 +60,14 @@
                 #size-cells = <0>;
                 status = "okay";
 
+                ft6336: touchscreen@48 {
+                    compatible = "focaltech,ft6236";
+                    reg = <0x48>;
+
+                    touchscreen-size-x = < 480 >;
+                    touchscreen-size-y = < 480 >;
+                };
+
             };
         };
 
