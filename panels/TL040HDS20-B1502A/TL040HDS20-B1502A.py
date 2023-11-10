@@ -55,7 +55,7 @@ icn.mipi_xor = True #not documented what it does, taken from config tool
 
 icn.save_config()
 
-# icn.soft_reset()
+icn.soft_reset()
 icn.dump_registers()
 icn.print_errors()
 icn.reset_errors()
