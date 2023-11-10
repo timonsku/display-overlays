@@ -26,6 +26,7 @@ icn = ICN6211(i2c)
 
 # print(icn.device_id)
 # icn.test_mode = BIST_MODE.COLORBAR
+# icn.test_mode = BIST_MODE.DISABLE
 
 icn.de_pol = True
 icn.resolution = (720,720)
@@ -43,9 +44,9 @@ icn.out_bit_swap = OUT_BIT_SWAP.MODE_666_7_2_to_0_5
 icn.mipi_lane_num = MIPI_LANE_NUM.ONE_LANE
 icn.pll_refsel = PLL_REF_SEL.MIPI_CLK
 icn.pll_int_0 = 3 #PLL clock
-icn.pll_out_divide_ratio = PLL_OUT_DIV_RATIO.DIV_4
+icn.pll_out_divide_ratio = PLL_OUT_DIV_RATIO.DIV_2
 icn.pll_ref_clk_divide_ratio = PLL_REF_CLK_DIV_RATIO.DIV_1
-icn.pll_ref_clk_extra_divide = False
+icn.pll_ref_clk_extra_divide = True
 icn.mipi_force_0 = 0x20 #not documented, magic value from Linux driver
 icn.pll_vco_isel = 0x20 #not documented, magic value from Linux driver
 icn.clk_phase_sel = CLK_PHASE.PHASE_0

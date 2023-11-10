@@ -34,15 +34,15 @@
                             };
 
                             panel-timing {
-                                clock-frequency = <25979400>;
+                                clock-frequency = <30000000>;
                                 hactive = <480>;
                                 vactive = <480>;
-                                hfront-porch = <4>;
-                                hback-porch = <2>;
-                                hsync-len = <60>;
-                                vback-porch = <9>;
-                                vfront-porch = <7>;
-                                vsync-len = <30>;
+                                hback-porch = <44>;
+                                hfront-porch = <46>;
+                                hsync-len = <2>;
+                                vback-porch = <18>;
+                                vfront-porch = <16>;
+                                vsync-len = <2>;
 
                                 hsync-active = <0>;
                                 vsync-active = <0>;
